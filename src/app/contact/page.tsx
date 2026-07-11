@@ -23,7 +23,7 @@ export default function ContactPage() {
           className="rounded-full bg-success px-5 text-success-foreground hover:bg-success/90"
         >
           <a
-            href="https://wa.me/919999999999?text=Hi%2C%20I%20have%20a%20question%20about%20MeraArea"
+            href="https://wa.me/8866556798?text=Hi%2C%20I%20have%20a%20question%20about%20MeraArea"
             target="_blank"
             rel="noopener noreferrer"
           >

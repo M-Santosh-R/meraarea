@@ -43,6 +43,11 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "MeraArea",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+  },
 };
 
 export default function RootLayout({

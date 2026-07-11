@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPinnedIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -9,10 +10,13 @@ export function SiteFooter() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           <div className="col-span-2 flex flex-col gap-3 sm:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-brand-foreground/10">
-                <MapPinnedIcon className="size-4.5" />
-              </span>
-              <span className="font-heading text-xl font-semibold tracking-tight">MeraArea</span>
+              <Image
+                src="/logo-white.png"
+                alt="MeraArea logo"
+                width={240}
+                height={64}
+                className="block"
+              />
             </Link>
             <p className="text-sm text-brand-foreground/70">
               Discover local businesses, and give every business an affordable online presence.

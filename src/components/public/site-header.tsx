@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MenuIcon, MapPinnedIcon, ArrowRightIcon, SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose, SheetTrigger } from "@/components/ui/sheet";
@@ -17,10 +18,20 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-accent-foreground">
-            <MapPinnedIcon className="size-4.5" />
-          </span>
-          <span className="font-heading text-xl font-semibold tracking-tight">MeraArea</span>
+          <Image
+            src="/logo-hor.png"
+            alt="MeraArea logo"
+            width={150}
+            height={72}
+            className="block dark:hidden"
+          />
+          <Image
+            src="/logo-white.png"
+            alt="MeraArea logo"
+            width={150}
+            height={72}
+            className="hidden dark:block"
+          />
         </Link>
         <nav className="hidden flex-1 items-center gap-1 sm:flex">
           {NAV_ITEMS.map((item) => (

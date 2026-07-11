@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircleIcon, MailIcon } from "lucide-react";
 
-const GET_LISTED_EMAIL = "mailto:hello@meraarea.example?subject=Get%20my%20business%20listed%20on%20MeraArea";
-const GET_LISTED_WHATSAPP = "https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20list%20my%20business%20on%20MeraArea";
+const GET_LISTED_EMAIL = "mailto:santoshmudaliar2003@gmail.com?subject=Get%20my%20business%20listed%20on%20MeraArea";
+const GET_LISTED_WHATSAPP = "https://wa.me/8866556798?text=Hi%2C%20I%27d%20like%20to%20list%20my%20business%20on%20MeraArea";
 
 export function GetListedCta() {
   return (
