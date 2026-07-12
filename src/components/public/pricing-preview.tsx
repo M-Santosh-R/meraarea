@@ -14,8 +14,8 @@ const TIERS = [
   },
   {
     name: "Plus",
-    price: "₹1,400/yr",
-    monthly: "~₹117/mo",
+    price: "₹1,500/yr",
+    monthly: "~125/mo",
     highlighted: true,
     features: ["Everything in Basic", "Featured on your area page", "Photo gallery"],
     detailedFeatures: ["Up to 5 gallery photos", "Priority placement in area search", "Verified badge eligibility"],
