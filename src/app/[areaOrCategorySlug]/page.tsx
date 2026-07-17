@@ -26,9 +26,14 @@ type Params = {
   searchParams: Promise<{ sort?: string; featured?: string }>;
 };
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
   const { areaOrCategorySlug } = await params;
-  const resolved = await resolveAreaOrCategory(areaOrCategorySlug);
+  const { sort, featured } = await searchParams;
+  const resolved = await resolveAreaOrCategory(areaOrCategorySlug, {
+    limit: PAGE_SIZE,
+    sort,
+    featuredOnly: featured === "true",
+  });
   if (!resolved) return {};
 
   if (resolved.kind === "area") {

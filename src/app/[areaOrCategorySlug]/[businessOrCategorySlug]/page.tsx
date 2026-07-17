@@ -43,12 +43,15 @@ type Params = {
   searchParams: Promise<{ sort?: string; featured?: string }>;
 };
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
   const { areaOrCategorySlug, businessOrCategorySlug } = await params;
-  const resolved = await resolveCategoryOrBusinessInArea(
-    areaOrCategorySlug,
-    businessOrCategorySlug
-  );
+  const { sort, featured } = await searchParams;
+  const resolved = await resolveCategoryOrBusinessInArea(areaOrCategorySlug, businessOrCategorySlug, {
+    limit: PAGE_SIZE,
+    relatedLimit: 6,
+    sort,
+    featuredOnly: featured === "true",
+  });
   if (!resolved) return {};
 
   if (resolved.kind === "business") {
@@ -76,9 +79,6 @@ export default async function AreaSubPage({ params, searchParams }: Params) {
   const { sort, featured } = await searchParams;
   const featuredOnly = featured === "true";
 
-  const area = await getAreaPageData(areaSlug, { limit: 1 });
-  if (!area) notFound();
-
   const resolved = await resolveCategoryOrBusinessInArea(areaSlug, businessOrCategorySlug, {
     limit: PAGE_SIZE,
     relatedLimit: 6,
@@ -88,6 +88,8 @@ export default async function AreaSubPage({ params, searchParams }: Params) {
   if (!resolved) notFound();
 
   if (resolved.kind === "category") {
+    const area = await getAreaPageData(areaSlug, { limit: 1 });
+    if (!area) notFound();
     const { area: areaSummary, category, businesses } = resolved.data;
     const breadcrumbItems = breadcrumbTrail(area.area.breadcrumb, [
       { name: areaSummary.name, href: `/${areaSummary.slug}` },
